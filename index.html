@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ledy Shoes</title>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="css/materialize.css"/>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/init.js"></script>
+  
+<script>
+/* ---------------------------------------
+  load data Semua Barang dari yang terbaru
+   ---------------------------------------
+  */
+  $(document).ready(function(){
+  $.post("http://localhost/ledyshoes/index.php?r=barang/getBarang",function(response){
+    var arr =$.parseJSON(response);
+    var trHTML = '';
+    $.each(arr, function(ix, nilai){
+      if(ix<6){
+      trHTML +="<div class='card' style='color:#ff0066; float:left; margin:5px; width:220px; height:350px;'>"
+    +"<div class='card-image waves-effect waves-block waves-light'>"
+      +"<img src='http://localhost/ledyshoes"+arr[ix].images+"' alt='http://localhost/ledyshoes/images/foto/"+arr[ix].images+"' class='activator' style='width:200px; height:150px;'>"
+    +"</div>"
+    +"<div class='card-content'>"
+    +"<span class='card-title'><p>"+arr[ix].nama_barang+"</p></span>"
+      +"<span class='card-title activator grey-text text-darken-4'>Rp."+arr[ix].harga+"<i class='material-icons right'>more_vert</i></span>"
+      +"<p><a href='#' class='btn-floating btn-large pink darken-4'><i class='material-icons'>shopping_cart</i></a></p>"
+    +"</div>"
+    +"<div class='card-reveal' style='background:white; color:#fec56b;'>"
+      +"<span class='card-title red-text text-darken-2'>Detail Barang<i class='material-icons right'>close</i></span>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p>"+arr[ix].nama_barang+"</p>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p>Rp."+arr[ix].harga+"</p>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p style=''>Size :"+arr[ix].ukuran+"</p>"
+      +"<p>"+arr[ix].warna_barang+"</p>"
+    +"</div>"
+  +"</div>"
+    }
+    });
+    $('#datane').append(trHTML);
+  });
+  });
+
+/* ----------------- 
+  load data boot
+    -----------------
+  */
+
+  $(document).ready(function(){
+  $.post("http://localhost/ledyshoes/index.php?r=barang/Bots",function(response){
+    var arr =$.parseJSON(response);
+    var trHTML = '';
+    $.each(arr, function(ix, nilai){
+      trHTML +="<div class='card' style='color:#ff9100; float:left; margin:5px; width:220px; height:350px;'>"
+    +"<div class='card-image waves-effect waves-block waves-light'>"
+      +"<img src='http://localhost/ledyshoes"+arr[ix].images+"' alt='http://localhost/ledyshoes/images/foto/"+arr[ix].images+"' class='activator' style='width:200px; height:160px;'>"
+    +"</div>"
+    +"<div class='card-content'>"
+    +"<span class='card-title'><p>"+arr[ix].nama_barang+"</p></span>"
+      +"<span class='card-title activator grey-text text-darken-4'>Rp."+arr[ix].harga+"<i class='material-icons right'>more_vert</i></span>"
+      +"<p><a href='#' class='btn-floating btn-large orange accent-3'><i class='material-icons'>shopping_cart</i></a></p>"
+    +"</div>"
+    +"<div class='card-reveal' style='background:white; color:#fec56b;'>"
+      +"<span class='card-title red-text text-darken-2'>Detail Barang<i class='material-icons right'>close</i></span>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p>"+arr[ix].nama_barang+"</p>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p>Rp."+arr[ix].harga+"</p>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p style=''>Size :"+arr[ix].ukuran+"</p>"
+      +"<p>"+arr[ix].warna_barang+"</p>"
+    +"</div>"
+  +"</div>"
+    });
+    $('#bots').append(trHTML);
+  });
+  });
+
+ /* ----------------- 
+  load data wedges
+    -----------------
+  */
+
+$(document).ready(function(){
+  $.post("http://localhost/ledyshoes/index.php?r=barang/Wedges",function(response){
+    var arr =$.parseJSON(response);
+    var trHTML = '';
+    $.each(arr, function(ix, nilai){
+      trHTML +="<div class='card' style='color:#00e676; float:left; margin:5px; width:220px; height:350px;'>"
+    +"<div class='card-image waves-effect waves-block waves-light'>"
+      +"<img src='http://localhost/ledyshoes"+arr[ix].images+"' alt='http://localhost/ledyshoes/images/foto/"+arr[ix].images+"' class='activator' style='width:200px; height:160px;'>"
+    +"</div>"
+    +"<div class='card-content'>"
+    +"<span class='card-title'><p>"+arr[ix].nama_barang+"</p></span>"
+      +"<span class='card-title activator grey-text text-darken-4'>Rp."+arr[ix].harga+"<i class='material-icons right'>more_vert</i></span>"
+      +"<p><a href='#' class='btn-floating btn-large green accent-3'><i class='material-icons'>shopping_cart</i></a></p>"
+    +"</div>"
+    +"<div class='card-reveal' style='background:white; color:#fec56b;'>"
+      +"<span class='card-title red-text text-darken-2'>Detail Barang<i class='material-icons right'>close</i></span>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p>"+arr[ix].nama_barang+"</p>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p>Rp."+arr[ix].harga+"</p>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p style=''>Size :"+arr[ix].ukuran+"</p>"
+      +"<p>"+arr[ix].warna_barang+"</p>"
+    +"</div>"
+  +"</div>"
+    });
+    $('#wedges').append(trHTML);
+  });
+  });
+
+/* ----------------- 
+  load data sport
+    -----------------
+  */
+
+  $(document).ready(function(){
+  $.post("http://localhost/ledyshoes/index.php?r=barang/Sport",function(response){
+    var arr =$.parseJSON(response);
+    var trHTML = '';
+    $.each(arr, function(ix, nilai){
+      if(ix<6){
+      trHTML +="<div class='card' style='color:#40c4ff; float:left; margin:5px; width:220px; height:350px;'>"
+    +"<div class='card-image waves-effect waves-block waves-light'>"
+      +"<img src='http://localhost/ledyshoes"+arr[ix].images+"' alt='http://localhost/ledyshoes/images/foto/"+arr[ix].images+"' class='activator' style='width:200px; height:150px;'>"
+    +"</div>"
+    +"<div class='card-content'>"
+    +"<span class='card-title'><p>"+arr[ix].nama_barang+"</p></span>"
+      +"<span class='card-title activator grey-text text-darken-4'>Rp."+arr[ix].harga+"<i class='material-icons right'>more_vert</i></span>"
+      +"<p><a href='#' class='btn-floating btn-large light-blue accent-3'><i class='material-icons'>shopping_cart</i></a></p>"
+    +"</div>"
+    +"<div class='card-reveal' style='background:white; color:#fec56b;'>"
+      +"<span class='card-title red-text text-darken-2'>Detail Barang<i class='material-icons right'>close</i></span>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p>"+arr[ix].nama_barang+"</p>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p>Rp."+arr[ix].harga+"</p>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p style=''>Size :"+arr[ix].ukuran+"</p>"
+      +"<p>"+arr[ix].warna_barang+"</p>"
+    +"</div>"
+  +"</div>"
+    }
+    });
+    $('#sport').append(trHTML);
+  });
+  });
+
+</script>
+
+
+
+</head>
+<body>
+	
+     <nav class="pink accent-3">
+    <div class="nav-wrapper">
+
+       <a href="#!" class="button-collapse" data-activates="panel-menu-kiri" onclick="Materialize.showStaggeredList('#panel-menu-kiri')"><i class="material-icons">menu</i></a>
+       <a href="" style="font-size:20pt; margin-left:20px;">Ledy <b>Shoes</b></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#button"><i class="material-icons">search</i></a></li>
+        <li><a href="index.html" text-lighten-4>Beranda</a></li>
+        <li><a href="bots.html">Boots</a></li>
+        <li><a href="heels.html">Heels</a></li>
+        <li><a href="flatshoes.html">Flatshoes</a></li>
+        <li><a href="wedges.html">Wedges</a></li>
+        <li><a href="slipon.html">Slipon</a></li>
+        <li><a href="sport.html">Sport</a></li>
+        <li><a href="tentang.html">Tentang Kami</a></li>
+      </ul>
+      <!--panel menu kiri-->
+      <ul class="side-nav" id="panel-menu-kiri" >
+        <li style="background:#ff0066; height:200px;"></li>
+       <li><a href="index.html">Beranda</a></li>
+        <li><a href="bots.html">Boots</a></li>
+        <li><a href="heels.html">Heels</a></li>
+        <li><a href="flatshoes.html">Flatshoes</a></li>
+        <li><a href="wedges.html">Wedges</a></li>
+        <li><a href="slipon.html">Slipon</a></li>
+        <li><a href="sport.html">Sport</a></li>
+        <li><a href="tentang.html">Tentang Kami</a></li>
+      </ul>
+      </div>
+    </nav>
+
+
+      
+    <!--Slider-->
+      <div class="carousel carousel-slider center" data-indicators="true" >
+      <div class="carousel-fixed-item center">
+      <a class="btn waves-effect white grey-text darken-text-2">Lihat</a>
+    </div> 
+    <div class="carousel-item pink white-text" href="#one!">
+      <h1>Discon 55%</h1>
+      <h5><b>Boot ITALIAN</b></h5>
+      <p class="white-text">This is your first panel</p>
+    </div>
+    <div >
+      <img class="carousel-item" src="images/i-header/s3.jpg" style="width:100%; height:10%;">
+    </div>
+    <div class="carousel-item pink accent-2 white-text" href="#three!">
+      <h2>Promo Terbaru Nike Girl</h2>
+      <p class="white-text">Italian Source</p>
+    </div>
+    <div>
+      <img class="carousel-item" src="images/image/sport/slide_sport.jpg" style="height:100px;">
+    </div>
+  </div>
+  
+  <!-- Get Barang all-->
+    <center>
+    <div class="collection">
+      <ul>
+        <li class="collection-item active pink darken-4" style="border-left:50px solid #f50057;">
+        <h3><i class="medium material-icons">loyalty</i> Barang<b>Terbaru</b></h3><hr style="width:350px;">
+        </li>
+        </ul>
+      <center>
+    <div class="row" style="margin-left:2px;">
+        <center><div class="col s12 m12 l12" id="datane"></div></center>
+      </div></center>
+      </div>
+      </center>
+    <!-- end Get Barang all-->
+
+
+    <!-- get Boots -->
+     <div class="collection">
+      <ul>
+        <li class="collection-item active orange darken-4" style="border-left:50px solid #ffb300;">
+        <h3><i class="medium material-icons">label</i><br><b>Boots</b></h3>
+        </li>
+        </ul>
+      <center>
+    <div class="row">
+  <div class="col s12 m12 l12" id="bots" ></div> 
+    </div>
+      </center>
+        </div>
+
+      <!-- end get Boots -->
+
+      <!-- get wedges -->
+        <div class="collection">
+      <ul>
+        <li class="collection-item active green accent-3" style="border-left:50px solid #69f0ae;">
+        <h3><i class="medium material-icons">label</i><br><b>Wedges</b></h3>
+        </li>
+        </ul>
+      <center>
+    <div class="row">
+  <div class="col s12 m12 l12" id="wedges" ></div> 
+    </div>
+      </center>
+        </div>
+        <!-- end get wedges -->
+
+        <!-- get Sport -->
+        <div class="collection">
+      <ul>
+        <li class="collection-item active light-blue accent-3" style="border-left:50px solid #40c4ff;">
+        <h3><i class="medium material-icons">label</i><br><b>Sport</b></h3>
+        </li>
+        </ul>
+      <center>
+    <div class="row">
+  <div class="col s12 m12 l12" id="sport" ></div> 
+    </div>
+      </center>
+        </div>
+
+        <!-- end get Sport -->
+</body>
+
+<!-- footer -->
+<footer class="page-footer pink darken-3">
+          <div class="container ">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Ledy Shoes</h5>
+                <p class="grey-text text-lighten-4">Berbelanja Nyaman Aman dan Menyenangkan</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2016 Ledy Shoes
+            <a class="grey-text text-lighten-4 right" href="#!">More STMIK AKAKOM YK</a>
+            </div>
+          </div>
+        </footer>
+  
+  <!-- script slide -->
+
+  <script>$('.carousel.carousel-slider').carousel({full_width: true});</script>
+  <script>$(document).ready(function(){
+      $('.slider').slider().carousel({full_width: true});
+    });</script>
+    <script>
+      $(document).ready(function(){
+      $('.carousel').carousel();
+    });
+    </script>
+    <script>
+      $(document).ready(function(){
+        $("a").click(function(){
+            var div = $("<input type='text'/>");
+            div.animate({height: '30px', opacity: '0.4'}, "slow");
+        });
+    });
+    </script>
+</html>

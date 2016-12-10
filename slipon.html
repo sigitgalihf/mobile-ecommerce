@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ledy Shoes</title>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/fonts?roboto=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/materialize.css"/>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/init.js"></script>
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+  
+<script>
+  $(document).ready(function(){
+  $.post("http://localhost/ledyshoes/index.php?r=barang/Slipon",function(response){
+    var arr =$.parseJSON(response);
+    var trHTML = '';
+    $.each(arr, function(ix, nilai){
+      trHTML +="<div class='card' style='color:#ff0066; float:left'>"
+    +"<div class='card-image waves-effect waves-block waves-light'>"
+      +"<img src='http://localhost/ledyshoes"+arr[ix].images+"' alt='http://localhost/ledyshoes/runtime/foto/"+arr[ix].images+"' class='activator' style=''>"
+    +"</div>"
+    +"<div class='card-content'>"
+    +"<span class='card-title'><p>"+arr[ix].nama_barang+"</p></span>"
+      +"<span class='card-title activator grey-text text-darken-4'>Rp."+arr[ix].harga+"<i class='material-icons right'>more_vert</i></span>"
+      +"<p><a href='#' class='btn-floating btn-large green'><i class='material-icons'>shopping_cart</i></a></p>"
+    +"</div>"
+    +"<div class='card-reveal' style='background:white; color:#fec56b;'>"
+      +"<span class='card-title red-text text-darken-2'>Detail Barang<i class='material-icons right'>close</i></span>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p>"+arr[ix].nama_barang+"</p>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p>Rp."+arr[ix].harga+"</p>"
+      +"<hr style='border:1px solid #e89c84;'>"
+      +"<p style=''>Size :"+arr[ix].ukuran+"</p>"
+      +"<p>"+arr[ix].warna_barang+"</p>"
+    +"</div>"
+  +"</div>"
+    });
+    $('#slipon').append(trHTML);
+  });
+  });
+</script>
+
+
+</head>
+<body>
+	
+     <nav class="pink accent-3">
+    <div class="nav-wrapper">
+       <a href="#!" class="button-collapse" data-activates="panel-menu-kiri" onclick="Materialize.showStaggeredList('#panel-menu-kiri')"><i class="material-icons">menu</i></a>
+       <a href="" style="font-size:20pt; margin-left:20px;">Ledy Shoes</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="index.html" text-lighten-4>Beranda</a></li>
+        <li><a href="bots.html">Boots</a></li>
+        <li><a href="heels.html">Heels</a></li>
+        <li><a href="flatshoes.html">Flatshoes</a></li>
+        <li><a href="wedges.html">Wedges</a></li>
+        <li><a href="slipon.html">Slipon</a></li>
+        <li><a href="sport.html">Sport</a></li>
+        <li><a href="tentang.html">Tentang Kami</a></li>
+      </ul>
+      <!--panel menu kiri-->
+      <ul class="side-nav" id="panel-menu-kiri" >
+        <li style="background:#ff0066; height:200px;"></li>
+       <li><a href="index.html">Beranda</a></li>
+        <li><a href="bots.html">Boots</a></li>
+        <li><a href="heels.html">Heels</a></li>
+        <li><a href="flatshoes.html">Flatshoes</a></li>
+        <li><a href="wedges.html">Wedges</a></li>
+        <li><a href="slipon.html">Slipon</a></li>
+        <li><a href="sport.html">Sport</a></li>
+        <li><a href="tentang.html">Tentang Kami</a></li>
+      </ul>
+      </div>
+    </nav>
+
+
+      
+    <!--Slider-->
+     <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="images/image/sport/slide_sport.jpg"> <!-- random image -->
+        <div class="caption center-align">
+          <h3 class="light whie-text text-lighten-3">Promo Besar-besaran Sport shoes!</h3>
+          <h5 class="light white-text text-lighten-3">Sporty Girl Nike</h5>
+        </div>
+      </li>
+      <li>
+        <img src="images/image/sport/slide_sport.jpg"> <!-- random image -->
+        <div class="caption left-align">
+          <h3 class="light white-text text-lighten-3">New Arrival</h3>
+          <h5 class="light white-text text-lighten-3">Open</h5>
+        </div>
+      </li>
+      
+    </ul>
+  </div>
+  
+   <div class="collection">
+      <ul>
+        <li class="collection-item active orange darken-4" style="border-left:50px solid #ffb300;">
+        <h3><i class="material-icons">loyalty</i><b>Slipon</b></h3>
+        </li>
+        </ul>
+      
+  <div class="row">
+  <div class="col s2 m12 l12" id="slipon">
+  </div> 
+      </div>
+      </div>
+  
+</body>
+<footer class="page-footer pink darken-3">
+          <div class="container ">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Ledy Shoes</h5>
+                <p class="grey-text text-lighten-4">Berbelanja Nyaman Aman dan Menyenangkan</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2016 Ledy Shoes
+            <a class="grey-text text-lighten-4 right" href="#!">More STMIK AKAKOM YK</a>
+            </div>
+          </div>
+        </footer>
+  
+  
+  <script>$('.carousel.carousel-slider').carousel({full_width: true});</script>
+  <script>$(document).ready(function(){
+      $('.slider').slider().carousel({full_width: true});
+    });</script>
+</html>
